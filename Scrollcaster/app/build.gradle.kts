@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.scrollcaster"
+    namespace = "com.scrollcaster"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.scrollcaster"
+        applicationId = "com.scrollcaster"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

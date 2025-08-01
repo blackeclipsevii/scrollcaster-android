@@ -1,4 +1,4 @@
-package com.example.scrollcaster.ui.theme
+package com.scrollcaster.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

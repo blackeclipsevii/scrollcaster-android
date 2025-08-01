@@ -1,4 +1,4 @@
-package com.example.scrollcaster
+package com.scrollcaster
 
 import android.os.Bundle
 import android.util.Log
@@ -8,7 +8,7 @@ import android.webkit.ConsoleMessage
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import androidx.activity.ComponentActivity
-import androidx.core.view.WindowCompat
+import com.scrollcaster.R
 
 class MainActivity : ComponentActivity() {
 

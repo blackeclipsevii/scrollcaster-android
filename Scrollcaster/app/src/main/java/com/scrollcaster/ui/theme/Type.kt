@@ -1,4 +1,4 @@
-package com.example.scrollcaster.ui.theme
+package com.scrollcaster.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

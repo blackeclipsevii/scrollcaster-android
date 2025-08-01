@@ -1,12 +1,10 @@
-package com.example.scrollcaster
+package com.scrollcaster
 
 import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import androidx.core.net.toUri
 
 
 class WebViewClientImpl(activity: Activity?) : WebViewClient() {
