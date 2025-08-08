@@ -8,6 +8,7 @@ import android.webkit.ConsoleMessage
 import android.webkit.WebChromeClient
 import android.webkit.WebView
 import androidx.activity.ComponentActivity
+import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -36,6 +37,12 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val callback = this.onBackPressedDispatcher.addCallback(this) {
+            // use the app's goBack function
+            webView?.goBack()
+        }
+
         this.webView = findViewById<View>(R.id.webview) as WebView
 
         ViewCompat.setOnApplyWindowInsetsListener(webView!!){ view, insets ->
