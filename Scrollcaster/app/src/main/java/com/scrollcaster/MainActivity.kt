@@ -12,10 +12,10 @@ import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.WindowCompat
 
 class MainActivity : ComponentActivity() {
     private var webView: WebView? = null
+    private var allow = true;
 
     fun load(top: Int, bottom: Int) {
         var url = "https://scrollcaster.app";
@@ -39,8 +39,7 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
 
         val callback = this.onBackPressedDispatcher.addCallback(this) {
-            // use the app's goBack function
-            webView?.goBack()
+            webView?.evaluateJavascript("globalThis.goBack();", null);
         }
 
         this.webView = findViewById<View>(R.id.webview) as WebView
