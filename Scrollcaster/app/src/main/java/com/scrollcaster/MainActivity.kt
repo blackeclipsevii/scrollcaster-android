@@ -15,7 +15,6 @@ import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : ComponentActivity() {
     private var webView: WebView? = null
-    private var allow = true;
 
     fun load(top: Int, bottom: Int) {
         var url = "https://scrollcaster.app";
