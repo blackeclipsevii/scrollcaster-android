@@ -39,7 +39,14 @@ class MainActivity : ComponentActivity() {
         setContentView(R.layout.activity_main)
 
         val callback = this.onBackPressedDispatcher.addCallback(this) {
-            webView?.evaluateJavascript("globalThis.goBack();", null);
+            webView?.evaluateJavascript("globalThis.canGoBack();", {
+                result ->
+                if (result == "false")
+                    finish()
+                else
+                    webView?.evaluateJavascript("globalThis.goBack();", null);
+            });
+
         }
 
         this.webView = findViewById<View>(R.id.webview) as WebView
