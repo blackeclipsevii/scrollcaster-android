@@ -2,8 +2,9 @@ package com.scrollcaster
 
 import android.os.Bundle
 import android.util.Log
-import android.view.KeyEvent
+import android.view.MotionEvent
 import android.view.View
+import android.view.View.OnTouchListener
 import android.webkit.ConsoleMessage
 import android.webkit.WebChromeClient
 import android.webkit.WebView
@@ -12,6 +13,7 @@ import androidx.activity.addCallback
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+
 
 class MainActivity : ComponentActivity() {
     private var webView: WebView? = null
@@ -45,15 +47,17 @@ class MainActivity : ComponentActivity() {
                 else
                     webView?.evaluateJavascript("globalThis.goBack();", null);
             });
-
         }
 
         this.webView = findViewById<View>(R.id.webview) as WebView
-
+        var launch = true;
         ViewCompat.setOnApplyWindowInsetsListener(webView!!){ view, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            load(systemBars.top, systemBars.bottom);
-            WindowInsetsCompat.CONSUMED
+            if (launch) {
+                val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+                load(systemBars.top, systemBars.bottom);
+                launch = false;
+            }
+            WindowInsetsCompat.CONSUMED;
         }
 
         val webSettings = webView!!.settings
@@ -68,14 +72,5 @@ class MainActivity : ComponentActivity() {
                 return true
             }
         }
-    }
-
-    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if ((keyCode == KeyEvent.KEYCODE_BACK) && webView!!.canGoBack()) {
-            webView!!.goBack()
-            return true
-        }
-
-        return super.onKeyDown(keyCode, event)
     }
 }

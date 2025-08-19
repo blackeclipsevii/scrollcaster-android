@@ -12,11 +12,11 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:windowSoftInputMode="adjustResize|stateVisible"
         android:theme="@style/Theme.Scrollcaster">
         <activity
             android:name="com.scrollcaster.MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.Scrollcaster">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
